@@ -86,6 +86,3 @@ Bu proje MIT lisansı ile lisanslanmıştır.
 ---
 
 **Not:** Bu proje eğitim amaçlıdır. Gerçek ortamda kullanmadan önce veri gizliliği ve güvenlik gereksinimlerinizi gözden geçirin.
-### Adımlar
-
-1. **Projeyi klonlayın:**
