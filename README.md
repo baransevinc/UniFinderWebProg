@@ -1,91 +1,93 @@
 # UniFinder
 
-UniFinder, üniversite öğrencilerinin birbirleriyle kolayca iletişim kurmasını ve yeni arkadaşlıklar edinmesini sağlayan modern bir web uygulamasıdır. ASP.NET Core Razor Pages (.NET 8) teknolojisiyle geliştirilmiştir.
+UniFinder, üniversite öğrencilerinin birbirleriyle iletişim kurmasını ve yeni sosyal bağlantılar oluşturmasını amaçlayan bir web uygulamasıdır.  
+Uygulama, **ASP.NET Core Razor Pages (.NET 8)** altyapısı kullanılarak geliştirilmiştir.
 
 ## Özellikler
 
-- **Kullanıcı Kaydı ve Girişi:** Güvenli kayıt ve giriş sistemi.
-- **Profil Yönetimi:** Kullanıcılar profil bilgilerini (üniversite, konum, ilgi alanları, fotoğraf vb.) güncelleyebilir.
-- **Eşleşme Sistemi:** Ortak ilgi alanlarına veya üniversiteye göre diğer öğrencilerle eşleşme.
-- **Mesajlaşma:** Eşleşen kullanıcılar arasında gerçek zamanlı sohbet.
-- **E-posta Bildirimleri:** SMTP (Gmail) ile e-posta bildirim desteği.
-- **Duyarlı Tasarım:** Mobil ve masaüstü cihazlarda modern ve kullanıcı dostu arayüz.
+- **Kullanıcı Hesapları:** Güvenli kayıt olma ve giriş yapma sistemi
+- **Profil Düzenleme:** Üniversite, şehir, ilgi alanları ve profil fotoğrafı bilgilerini güncelleme
+- **Eşleşme Mekanizması:** Ortak üniversite veya ilgi alanlarına göre kullanıcı eşleştirme
+- **Mesajlaşma:** Eşleşen kullanıcılar arasında anlık sohbet imkânı
+- **E-posta Bildirimleri:** Gmail SMTP üzerinden e-posta gönderimi
+- **Duyarlı Arayüz:** Mobil ve masaüstü cihazlara uyumlu tasarım
 
 ## Kullanılan Teknolojiler
 
 - ASP.NET Core Razor Pages (.NET 8)
 - Entity Framework Core (SQL Server)
-- SMTP (Gmail) ile e-posta gönderimi
-- HTML, CSS, JavaScript
+- SMTP (Gmail)
+- HTML, CSS ve JavaScript
 
 ## Kurulum
 
-### Gereksinimler
+## Gereksinimler
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/download)
-- [SQL Server](https://www.microsoft.com/tr-tr/sql-server/sql-server-downloads)
+- .NET 8 SDK
+- SQL Server
 - Visual Studio 2022 veya üzeri
 
-2. **Veritabanı bağlantısını ayarlayın:**
-- `appsettings.json` dosyasındaki `DefaultConnection` kısmını kendi SQL Server bilgilerinizle güncelleyin.
-- Örnek:
-  ```json
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=SUNUCU_ADI;Database=UniFinder;Trusted_Connection=True;TrustServerCertificate=True"
-  }
-  ```
+## Veritabanı Yapılandırması
 
-3. **Veritabanı migrasyonlarını uygulayın:**
+`appsettings.json` dosyasında yer alan `DefaultConnection` ayarını kendi SQL Server bilgilerinizle güncelleyin.
 
-4. **E-posta ayarlarını yapılandırın:**
-- `appsettings.json` dosyasındaki `MailSettings` bölümünü kendi Gmail SMTP bilgilerinizle doldurun.
-- Örnek:
-  ```json
-  "MailSettings": {
-    "Mail": "mailadresiniz@gmail.com",
-    "DisplayName": "UniFinder",
-    "Password": "uygulama-şifresi",
-    "Host": "smtp.gmail.com",
-    "Port": 587
-  }
-  ```
+Örnek bağlantı tanımı:
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Server=SUNUCU_ADI;Database=UniFinder;Trusted_Connection=True;TrustServerCertificate=True"
+}
+Veritabanı Migrasyonları
+Projeye ait migration işlemlerini çalıştırarak veritabanını oluşturun.
 
-5. **Projeyi başlatın:**
+E-posta Ayarları
+E-posta gönderimi için appsettings.json dosyasındaki MailSettings bölümünü kendi SMTP bilgilerinizle doldurun.
 
-6. **Uygulamayı açın:**
-- Tarayıcınızda `https://localhost:5001` adresine gidin.
+Örnek:
 
-## Kullanım
+json
+Kodu kopyala
+"MailSettings": {
+  "Mail": "mailadresiniz@gmail.com",
+  "DisplayName": "UniFinder",
+  "Password": "uygulama-sifresi",
+  "Host": "smtp.gmail.com",
+  "Port": 587
+}
+Uygulamayı Çalıştırma
+Projeyi Visual Studio üzerinden başlatın ve tarayıcıdan aşağıdaki adrese gidin:
 
-- **Kayıt Ol:** Yeni bir hesap oluşturun.
-- **Profilinizi Düzenleyin:** Üniversite, konum, ilgi alanları ve profil fotoğrafınızı ekleyin.
-- **Eşleşmeleri Görüntüleyin:** Diğer öğrencilerle eşleşin ve sohbet başlatın.
-- **Mesajlaşın:** Eşleştiğiniz kişilerle mesajlaşın.
+arduino
+Kodu kopyala
+https://localhost:5001
+Kullanım
+Kayıt Olma: Yeni bir kullanıcı hesabı oluşturun
 
-## Proje Yapısı
+Profil Güncelleme: Kişisel bilgilerinizi ve ilgi alanlarınızı düzenleyin
 
-- `UniFinderWebProg/` - Ana Razor Pages projesi
-- `Controllers/` - İş mantığı ve istek yönetimi
-- `Views/` - Razor Pages ve görünümler
-- `wwwroot/` - Statik dosyalar (CSS, JS, görseller)
-- `appsettings.json` - Konfigürasyon dosyası
+Eşleşmeler: Diğer öğrencilerle eşleşmeleri görüntüleyin
 
-## Güvenlik
+Sohbet: Eşleştiğiniz kullanıcılarla mesajlaşın
 
-- Şifreler ve hassas bilgiler kaynak kodda tutulmamalıdır.
-- Gerçek ortamda [User Secrets](https://learn.microsoft.com/tr-tr/aspnet/core/security/app-secrets) veya ortam değişkenleri kullanın.
+Proje Yapısı
+UniFinderWebProg/ – Ana Razor Pages projesi
 
-## Katkı
+Controllers/ – İsteklerin ve iş mantığının yönetildiği katman
 
-Katkıda bulunmak isterseniz, lütfen issue açın veya pull request gönderin.
+Views/ – Razor Pages dosyaları
 
-## Lisans
+wwwroot/ – CSS, JavaScript ve görseller
 
+appsettings.json – Uygulama yapılandırmaları
+
+Güvenlik
+Şifreler ve hassas bilgiler kod içinde tutulmamalıdır
+
+Gerçek ortamda User Secrets veya ortam değişkenleri kullanılması önerilir
+
+Katkı
+Projeye katkı sağlamak için issue açabilir veya pull request gönderebilirsiniz.
+
+Lisans
 Bu proje MIT lisansı ile lisanslanmıştır.
 
----
-
-**Not:** Bu proje eğitim amaçlıdır. Gerçek ortamda kullanmadan önce veri gizliliği ve güvenlik gereksinimlerinizi gözden geçirin.
-### Adımlar
-
-1. **Projeyi klonlayın:**
+Not: Bu uygulama eğitim amaçlı geliştirilmiştir. Canlı ortamda kullanılmadan önce veri güvenliği ve gizlilik gereksinimleri gözden geçirilmelidir.
