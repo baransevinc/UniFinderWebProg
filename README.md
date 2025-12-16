@@ -21,17 +21,18 @@ Uygulama, **ASP.NET Core Razor Pages (.NET 8)** altyapısı kullanılarak geliş
 
 ## Kurulum
 
-## Gereksinimler
+### Gereksinimler
 
 - .NET 8 SDK
 - SQL Server
 - Visual Studio 2022 veya üzeri
 
-## Veritabanı Yapılandırması
+### Veritabanı Yapılandırması
 
 `appsettings.json` dosyasında yer alan `DefaultConnection` ayarını kendi SQL Server bilgilerinizle güncelleyin.
 
 Örnek bağlantı tanımı:
+
 ```json
 "ConnectionStrings": {
   "DefaultConnection": "Server=SUNUCU_ADI;Database=UniFinder;Trusted_Connection=True;TrustServerCertificate=True"
@@ -42,7 +43,7 @@ Projeye ait migration işlemlerini çalıştırarak veritabanını oluşturun.
 E-posta Ayarları
 E-posta gönderimi için appsettings.json dosyasındaki MailSettings bölümünü kendi SMTP bilgilerinizle doldurun.
 
-Örnek:
+Örnek yapılandırma:
 
 json
 Kodu kopyala
@@ -80,7 +81,7 @@ wwwroot/ – CSS, JavaScript ve görseller
 appsettings.json – Uygulama yapılandırmaları
 
 Güvenlik
-Şifreler ve hassas bilgiler kod içinde tutulmamalıdır
+Şifreler ve hassas bilgiler kaynak kod içinde tutulmamalıdır
 
 Gerçek ortamda User Secrets veya ortam değişkenleri kullanılması önerilir
 
@@ -89,5 +90,3 @@ Projeye katkı sağlamak için issue açabilir veya pull request gönderebilirsi
 
 Lisans
 Bu proje MIT lisansı ile lisanslanmıştır.
-
-Not: Bu uygulama eğitim amaçlı geliştirilmiştir. Canlı ortamda kullanılmadan önce veri güvenliği ve gizlilik gereksinimleri gözden geçirilmelidir.
